@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
+const authRoutes = require('./routes/auth');
 const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
+app.use(authRoutes);
 
 app.use(errorController.get404);
 mongoose.connect('mongodb+srv://NodeTest:rTgl4AD7IF0L3X6m@mongotest-ay262.mongodb.net/shop?retryWrites=true&w=majority')
